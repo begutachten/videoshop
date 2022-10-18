@@ -22,6 +22,8 @@ import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.money.MonetaryAmount;
+
 import org.javamoney.moneta.Money;
 import org.salespointframework.catalog.Product;
 
