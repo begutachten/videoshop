@@ -43,16 +43,24 @@ public class Disc extends Product {
 	private DiscType type;
 
 	// (｡◕‿◕｡)
-	// Jede Disc besitzt mehrere Kommentare, eine "1 zu n"-Beziehung -> @OneToMany für JPA
-	// cascade gibt an, was mit den Kindelementen (Comment) passieren soll wenn das Parentelement
+	// Jede Disc besitzt mehrere Kommentare, eine "1 zu n"-Beziehung -> @OneToMany
+	// für JPA
+	// cascade gibt an, was mit den Kindelementen (Comment) passieren soll wenn das
+	// Parentelement
 	// (Disc) mit der Datenbank "interagiert"
 	@OneToMany(cascade = CascadeType.ALL) //
 	private List<Comment> comments = new ArrayList<>();
 
 	@SuppressWarnings({ "unused", "deprecation" })
-	private Disc() {}
+	private Disc() {
+	}
 
-	public Disc(String name, String image, Money price, String genre, DiscType type) {
+	/**
+	 * @param name
+	 * @param image
+	 * @param price
+	 */
+	public Disc(String name, String image, Money price, Money new_price, String genre, DiscType type) {
 
 		super(name, price);
 
@@ -70,10 +78,14 @@ public class Disc extends Product {
 	}
 
 	// (｡◕‿◕｡)
-	// Es ist immer sinnvoll sich zu überlegen wie speziell der Rückgabetyp sein sollte
-	// Da sowies nur über die Kommentare iteriert wird, ist ein Iterable<T> das sinnvollste.
-	// Weil wir keine Liste zurück geben, verhindern wir auch, dass jemand die comments-Liste
-	// einfach durch clear() leert. Deswegen geben auch so viele Salespoint Klassen nur
+	// Es ist immer sinnvoll sich zu überlegen wie speziell der Rückgabetyp sein
+	// sollte
+	// Da sowies nur über die Kommentare iteriert wird, ist ein Iterable<T> das
+	// sinnvollste.
+	// Weil wir keine Liste zurück geben, verhindern wir auch, dass jemand die
+	// comments-Liste
+	// einfach durch clear() leert. Deswegen geben auch so viele Salespoint Klassen
+	// nur
 	// Iterable<T> zurück ;)
 	public Iterable<Comment> getComments() {
 		return comments;
