@@ -24,6 +24,7 @@
                 </div>
                 <div class="content">
                     <div class="description" th:text="${{disc.price}}">9.99 €</div>
+                    <div sec:authorize="isAuthenticated()" class ="description" th:text="${{disc.discount_price}}">8.99 €</div>
                 </div>
                 <div class="extra content" th:text="${disc.genre}"> Action</div>
             </div>
