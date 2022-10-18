@@ -79,7 +79,7 @@ class CatalogDataInitializer implements DataInitializer {
 				.save(new Disc("Persepolis", "pers", Money.of(14.99, EURO), Money.of(13.49, EURO),
 						"Animation/Biography/Drama", DiscType.DVD));
 		videoCatalog
-				.save(new Disc("Hot Shots! Part Deux", "hspd", Money.of(9999.0, EURO), Money.of(899.0, EURO),
+				.save(new Disc("Hot Shots! Part Deux", "hspd", Money.of(9999.0, EURO), Money.of(8999.0, EURO),
 						"Action/Comedy/War",
 						DiscType.DVD));
 		videoCatalog

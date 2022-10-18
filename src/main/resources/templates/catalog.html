@@ -23,8 +23,10 @@
                     </a>
                 </div>
                 <div class="content">
-                    <div class="description" th:text="${{disc.price}}">9.99 €</div>
-                    <div sec:authorize="isAuthenticated()" class ="description" th:text="${{disc.discount_price}}">8.99 €</div>
+                    <div sec:authorize="!isAuthenticated()" style="color: brown;font-size: medium;"     class="description" th:text="${{disc.price}}">9.99 €</div>
+                    <div sec:authorize="!isAuthenticated()" style="color: lightgray;font-size: xx-small;"     class="description" th:text="'With membership-discount your price would be :' + ${{disc.discount_price}}">9.99 €</div>
+                    <div sec:authorize="isAuthenticated()" style="font-style: italic;color: lightslategray;font-size: smaller;"     class="description" th:text="${{disc.price}}">9.99 €</div>
+                    <div style="color:red" sec:authorize="isAuthenticated()" class ="description" th:text="${{disc.discount_price}}">8.99 €</div>
                 </div>
                 <div class="extra content" th:text="${disc.genre}"> Action</div>
             </div>
