@@ -41,6 +41,7 @@ public class Disc extends Product {
 	// primitive Typen oder Strings müssen nicht extra für JPA annotiert werden
 	private String genre, image;
 	private DiscType type;
+	private Money new_price;
 
 	// (｡◕‿◕｡)
 	// Jede Disc besitzt mehrere Kommentare, eine "1 zu n"-Beziehung -> @OneToMany
@@ -64,6 +65,7 @@ public class Disc extends Product {
 
 		super(name, price);
 
+		this.new_price = new_price;
 		this.image = image;
 		this.genre = genre;
 		this.type = type;
@@ -89,6 +91,10 @@ public class Disc extends Product {
 	// Iterable<T> zurück ;)
 	public Iterable<Comment> getComments() {
 		return comments;
+	}
+
+	public void setPrice() {
+		this.setPrice(new_price);
 	}
 
 	public String getImage() {
